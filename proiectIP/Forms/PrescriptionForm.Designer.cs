@@ -34,9 +34,12 @@
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prescriptionTableAdapter = new proiectIP.BazaDeDateIPDataSetTableAdapters.PrescriptionTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBloodTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicSpecialisationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDeDateIPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
@@ -48,13 +51,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
-            this.medicIDDataGridViewTextBoxColumn,
-            this.patientIDDataGridViewTextBoxColumn,
-            this.prescriptionTextDataGridViewTextBoxColumn});
+            this.prescriptionTextDataGridViewTextBoxColumn,
+            this.patientNameDataGridViewTextBoxColumn,
+            this.patientSurnameDataGridViewTextBoxColumn,
+            this.patientBloodTypeDataGridViewTextBoxColumn,
+            this.medicNameDataGridViewTextBoxColumn,
+            this.medicSpecialisationDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.prescriptionBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(108, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 98);
+            this.dataGridView1.Size = new System.Drawing.Size(766, 150);
             this.dataGridView1.TabIndex = 0;
             // 
             // bazaDeDateIPDataSet
@@ -77,29 +83,47 @@
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             // 
-            // medicIDDataGridViewTextBoxColumn
-            // 
-            this.medicIDDataGridViewTextBoxColumn.DataPropertyName = "Medic_ID";
-            this.medicIDDataGridViewTextBoxColumn.HeaderText = "Medic_ID";
-            this.medicIDDataGridViewTextBoxColumn.Name = "medicIDDataGridViewTextBoxColumn";
-            // 
-            // patientIDDataGridViewTextBoxColumn
-            // 
-            this.patientIDDataGridViewTextBoxColumn.DataPropertyName = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn.HeaderText = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn.Name = "patientIDDataGridViewTextBoxColumn";
-            // 
             // prescriptionTextDataGridViewTextBoxColumn
             // 
             this.prescriptionTextDataGridViewTextBoxColumn.DataPropertyName = "PrescriptionText";
             this.prescriptionTextDataGridViewTextBoxColumn.HeaderText = "PrescriptionText";
             this.prescriptionTextDataGridViewTextBoxColumn.Name = "prescriptionTextDataGridViewTextBoxColumn";
             // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            // 
+            // patientSurnameDataGridViewTextBoxColumn
+            // 
+            this.patientSurnameDataGridViewTextBoxColumn.DataPropertyName = "PatientSurname";
+            this.patientSurnameDataGridViewTextBoxColumn.HeaderText = "PatientSurname";
+            this.patientSurnameDataGridViewTextBoxColumn.Name = "patientSurnameDataGridViewTextBoxColumn";
+            // 
+            // patientBloodTypeDataGridViewTextBoxColumn
+            // 
+            this.patientBloodTypeDataGridViewTextBoxColumn.DataPropertyName = "PatientBloodType";
+            this.patientBloodTypeDataGridViewTextBoxColumn.HeaderText = "PatientBloodType";
+            this.patientBloodTypeDataGridViewTextBoxColumn.Name = "patientBloodTypeDataGridViewTextBoxColumn";
+            // 
+            // medicNameDataGridViewTextBoxColumn
+            // 
+            this.medicNameDataGridViewTextBoxColumn.DataPropertyName = "MedicName";
+            this.medicNameDataGridViewTextBoxColumn.HeaderText = "MedicName";
+            this.medicNameDataGridViewTextBoxColumn.Name = "medicNameDataGridViewTextBoxColumn";
+            // 
+            // medicSpecialisationDataGridViewTextBoxColumn
+            // 
+            this.medicSpecialisationDataGridViewTextBoxColumn.DataPropertyName = "MedicSpecialisation";
+            this.medicSpecialisationDataGridViewTextBoxColumn.HeaderText = "MedicSpecialisation";
+            this.medicSpecialisationDataGridViewTextBoxColumn.Name = "medicSpecialisationDataGridViewTextBoxColumn";
+            // 
             // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 246);
+            this.ClientSize = new System.Drawing.Size(811, 246);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PrescriptionForm";
             this.Text = "PrescriptionForm";
@@ -112,14 +136,18 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private BazaDeDateIPDataSet bazaDeDateIPDataSet;
         private System.Windows.Forms.BindingSource prescriptionBindingSource;
         private BazaDeDateIPDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medicIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientSurnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientBloodTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicSpecialisationDataGridViewTextBoxColumn;
     }
 }

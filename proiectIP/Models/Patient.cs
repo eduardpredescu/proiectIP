@@ -25,5 +25,10 @@ namespace proiectIP.Models
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string BloodType { get => bloodType; set => bloodType = value; }
+
+        public override string ToString()
+        {
+            return Id.ToString()+" "+Name+" "+Surname+" "+BloodType;
+        }
     }
 }

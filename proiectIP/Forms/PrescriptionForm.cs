@@ -21,7 +21,7 @@ namespace proiectIP.Forms
         {
             // TODO: This line of code loads data into the 'bazaDeDateIPDataSet.Prescription' table. You can move, or remove it, as needed.
             this.prescriptionTableAdapter.Fill(this.bazaDeDateIPDataSet.Prescription);
-
         }
+        
     }
 }

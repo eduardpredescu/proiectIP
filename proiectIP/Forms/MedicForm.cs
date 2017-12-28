@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proiectIP.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,13 @@ namespace proiectIP
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PatientForm p = new PatientForm();
+            p.ShowDialog();
+            this.Close();
         }
     }
 }
