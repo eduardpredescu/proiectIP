@@ -1,4 +1,5 @@
 ﻿using proiectIP.Models;
+using proiectIP.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,9 +22,6 @@ namespace proiectIP.Forms
 
         private void PatientForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bazaDeDateIPDataSet.Patient' table. You can move, or remove it, as needed.
-            this.patientTableAdapter.Fill(this.bazaDeDateIPDataSet.Patient);
-
             OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\XT\source\repos\proiectIP\proiectIP\BazaDeDateIP.accdb");
             connection.Open();
             OleDbDataReader reader = null;
@@ -34,7 +32,6 @@ namespace proiectIP.Forms
 
             while (reader.Read())
             {
-
                 pList.Add(new Patient((int) reader[0], (string) reader[1], (string) reader[2], (string) reader[3]));
             }
 
@@ -65,9 +62,22 @@ namespace proiectIP.Forms
             patientListView.EndUpdate();
         }
 
-        private void patientListView_SelectedIndexChanged(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            base.OnFormClosing(e);
 
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // Confirm user wants to close
+            switch (MessageBox.Show(this, "Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    FormManager.AppInstance.Close();
+                    break;
+            }
         }
     }
 }

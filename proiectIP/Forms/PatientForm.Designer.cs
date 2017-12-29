@@ -59,7 +59,6 @@
             this.patientListView.Size = new System.Drawing.Size(542, 102);
             this.patientListView.TabIndex = 1;
             this.patientListView.UseCompatibleStateImageBehavior = false;
-            this.patientListView.SelectedIndexChanged += new System.EventHandler(this.patientListView_SelectedIndexChanged);
             // 
             // PatientForm
             // 
