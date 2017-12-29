@@ -17,12 +17,8 @@ namespace proiectIP.Utils
                     e.Cancel = true;
                     break;
                 default:
-                    if (sender is FormManager) break;
-                    else
-                    {
-                        FormManager.AppInstance.Close();
-                        break;
-                    }
+                    ApplicationManager.app.Close();
+                    break;
             }
         }
     }

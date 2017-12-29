@@ -1,7 +1,4 @@
-﻿using proiectIP.Forms;
-using System.Collections.Generic;
-
-namespace proiectIP.Models
+﻿namespace proiectIP.Models
 {
     class Patient
     {

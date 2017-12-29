@@ -6,16 +6,12 @@ namespace proiectIP.Forms
 {
     public partial class FormManager : Form
     {
-        public static FormManager AppInstance;
         private LoginForm loginForm;
 
         public FormManager()
-        {
-            AppInstance = this;
-
+        { 
             this.FormClosing += FormUtility.CloseForm;
             InitializeComponent();
-
         }
 
         private void medicLoginButton_Click(object sender, EventArgs e)
