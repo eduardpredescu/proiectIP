@@ -29,27 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bazaDeDateIPDataSet = new proiectIP.BazaDeDateIPDataSet();
-            this.patientTableAdapter = new proiectIP.BazaDeDateIPDataSetTableAdapters.PatientTableAdapter();
             this.patientListView = new System.Windows.Forms.ListView();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDeDateIPDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "Patient";
-            this.patientBindingSource.DataSource = this.bazaDeDateIPDataSet;
-            // 
-            // bazaDeDateIPDataSet
-            // 
-            this.bazaDeDateIPDataSet.DataSetName = "BazaDeDateIPDataSet";
-            this.bazaDeDateIPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
             // 
             // patientListView
             // 
@@ -69,16 +50,11 @@
             this.Name = "PatientForm";
             this.Text = "PatientForm";
             this.Load += new System.EventHandler(this.PatientForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDeDateIPDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private BazaDeDateIPDataSet bazaDeDateIPDataSet;
-        private System.Windows.Forms.BindingSource patientBindingSource;
-        private BazaDeDateIPDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.ListView patientListView;
     }
 }

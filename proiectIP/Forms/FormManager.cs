@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using proiectIP.Utils;
+using System;
 using System.Windows.Forms;
 
 namespace proiectIP.Forms
@@ -13,19 +7,29 @@ namespace proiectIP.Forms
     public partial class FormManager : Form
     {
         public static FormManager AppInstance;
+        private LoginForm loginForm;
+
         public FormManager()
         {
             AppInstance = this;
 
-            WindowState = FormWindowState.Minimized;
-            ShowInTaskbar = false;
-            Visible = false;
-
+            this.FormClosing += FormUtility.CloseForm;
             InitializeComponent();
 
-            var MedicForm = new MedicForm();
-            MedicForm.Show();
+        }
 
+        private void medicLoginButton_Click(object sender, EventArgs e)
+        {
+            loginForm = new LoginForm(true);
+            this.Hide();
+            loginForm.Show();
+        }
+
+        private void patientLoginButton_Click(object sender, EventArgs e)
+        {
+            loginForm = new LoginForm(false);
+            this.Hide();
+            loginForm.Show();
         }
     }
 }

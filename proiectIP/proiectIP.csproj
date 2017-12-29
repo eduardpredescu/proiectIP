@@ -45,16 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BazaDeDateIPDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BazaDeDateIPDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\DatabaseController.cs" />
+    <Compile Include="Controllers\MedicController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Forms\FormManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormManager.Designer.cs">
       <DependentUpon>FormManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MedicForm.cs">
       <SubType>Form</SubType>
@@ -74,11 +78,19 @@
     <Compile Include="Forms\PrescriptionForm.Designer.cs">
       <DependentUpon>PrescriptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Prescription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FormUtility.cs" />
+    <EmbeddedResource Include="Forms\FormManager.resx">
+      <DependentUpon>FormManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MedicForm.resx">
       <DependentUpon>MedicForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,17 +109,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="BazaDeDateIPDataSet.xsc">
-      <DependentUpon>BazaDeDateIPDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BazaDeDateIPDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BazaDeDateIPDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BazaDeDateIPDataSet.xss">
-      <DependentUpon>BazaDeDateIPDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,9 +122,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="BazaDeDateIP.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

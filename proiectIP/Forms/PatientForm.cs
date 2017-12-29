@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using proiectIP.Controllers;
 
 namespace proiectIP.Forms
 {
@@ -22,20 +23,7 @@ namespace proiectIP.Forms
 
         private void PatientForm_Load(object sender, EventArgs e)
         {
-            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\XT\source\repos\proiectIP\proiectIP\BazaDeDateIP.accdb");
-            connection.Open();
-            OleDbDataReader reader = null;
-            OleDbCommand command = new OleDbCommand("SELECT * FROM Patient", connection);
-            reader = command.ExecuteReader();
             patientListView.Items.Clear();
-            List<Patient> pList = new List<Patient>();
-
-            while (reader.Read())
-            {
-                pList.Add(new Patient((int) reader[0], (string) reader[1], (string) reader[2], (string) reader[3]));
-            }
-
-            connection.Close();
 
             patientListView.GridLines = true;
             patientListView.View = View.Details;
@@ -46,6 +34,8 @@ namespace proiectIP.Forms
             patientListView.Columns.Add("Name", 150);
             patientListView.Columns.Add("Surname", 150);
             patientListView.Columns.Add("Blood Type", 150);
+
+            List<Patient> pList = PatientController.getAll();
 
             patientListView.BeginUpdate();
             
