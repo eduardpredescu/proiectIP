@@ -25,8 +25,9 @@ namespace proiectIP.Controllers
             {
                 loginStatus = Verify(password,(string) db.Reader[0]) ? true : false;
             }
+            db.Reader.Close();
             db.Connection.Close();
-            
+
             return loginStatus;
         }
     }

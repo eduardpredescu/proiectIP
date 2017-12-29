@@ -25,7 +25,7 @@ namespace proiectIP.Controllers
             }
 
             db.Reader.Close();
-
+            db.Connection.Close();
             return mList;
         }
 
@@ -37,8 +37,35 @@ namespace proiectIP.Controllers
             db.Command.Parameters.AddWithValue("@username", username);
             db.Reader = db.Command.ExecuteReader();
 
-            if (db.Reader.Read()) return new Medic((int)db.Reader[0], (string)db.Reader[1], (string)db.Reader[2], (string)db.Reader[3]);
-            else return new Medic(-1, "NONE", "", "");
+            Medic m;
+            if (db.Reader.Read())
+            {
+                m =  new Medic((int)db.Reader[0], (string)db.Reader[1], (string)db.Reader[2], (string)db.Reader[3]);   
+            }
+            else m = new Medic(-1, "NONE", "", "");
+            db.Reader.Close();
+            db.Connection.Close();
+            return m;
+        }
+
+        public static Medic getById(int id)
+        {
+            db.Connection.Open();
+            db.Command = new System.Data.OleDb.OleDbCommand("SELECT Medic.* FROM MedicLogin INNER JOIN Medic " +
+                "ON MedicLogin.Medic_ID = Medic.ID WHERE MedicLogin.Medic_ID = @id", db.Connection);
+            db.Command.Parameters.AddWithValue("@id", id);
+            db.Reader = db.Command.ExecuteReader();
+
+            Medic m;
+            if (db.Reader.Read())
+            {
+                m = new Medic((int)db.Reader[0], (string)db.Reader[1], (string)db.Reader[2], (string)db.Reader[3]);
+
+            }
+            else m = new Medic(-1, "NONE", "", "");
+            db.Reader.Close();
+            db.Connection.Close();
+            return m;
         }
     }
 }

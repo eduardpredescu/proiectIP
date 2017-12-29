@@ -12,7 +12,7 @@ namespace proiectIP.Controllers
         public static List<Prescription> getAll()
         {
             db.Connection.Open();
-            db.Command = new System.Data.OleDb.OleDbCommand("SELECT " +
+            db.Command = new OleDbCommand("SELECT " +
                 "pr.ID, " +
                 "m.MedicName, " +
                 "m.MedicSpecialisation," +
@@ -47,7 +47,7 @@ namespace proiectIP.Controllers
         public static List<Prescription> getPatientPrescription(int id)
         {
             db.Connection.Open();
-            db.Command = new System.Data.OleDb.OleDbCommand("SELECT m.MedicName," +
+            db.Command = new OleDbCommand("SELECT m.MedicName," +
                 " m.MedicSpecialisation, " +
                 "pr.prescriptionText FROM Medic m INNER JOIN Prescription pr " +
                 "ON m.ID = pr.Medic_ID WHERE pr.Patient_ID = @id", db.Connection);
