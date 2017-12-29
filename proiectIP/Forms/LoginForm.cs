@@ -19,12 +19,32 @@ namespace proiectIP.Forms
         {
             var username = (string)emailTextBox.Text;
             var password = (string)passwordTextBox.Text;
+
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("One or more fields are empty");
+                return;
+            }
+
             if (UserController.Login(username, password, loginType))
             {
-
+                if (loginType)
+                {
+                    var patientListForm = new PatientForm(username);
+                    this.Hide();
+                    patientListForm.Show();
+                } else
+                {
+                    var patientDetailsForm = new PatientDetails(username);
+                    this.Hide();
+                    patientDetailsForm.Show();
+                }
             }
             else
             {
+                MessageBox.Show("Invalid Login. Please try again.");
+                emailTextBox.Text = "";
+                passwordTextBox.Text = "";
             }
         }
     }

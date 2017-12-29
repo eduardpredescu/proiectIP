@@ -37,6 +37,13 @@
             this.PrescriptionText = prescriptionText;
         }
 
+        public Prescription(string medicName, string medicSpecialisation, string prescriptionText)
+        {
+            this.MedicName = medicName;
+            this.MedicSpecialisation = medicSpecialisation;
+            this.PrescriptionText = prescriptionText;
+        }
+
         public int Id { get => id; set => id = value; }
         public int MedicId { get => medicId; set => medicId = value; }
         public int PatientId { get => patientId; set => patientId = value; }

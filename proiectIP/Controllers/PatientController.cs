@@ -28,5 +28,18 @@ namespace proiectIP.Controllers
 
             return pList;
         }
+
+        public static Patient getByUsername(string username)
+        {
+            db.Connection.Open();
+            db.Command = new System.Data.OleDb.OleDbCommand("SELECT Patient.* FROM PatientLogin INNER JOIN Patient " +
+                "ON PatientLogin.Patient_ID = Patient.ID WHERE PatientLogin.PatientEmail = @username", db.Connection);
+            db.Command.Parameters.AddWithValue("@username", username);
+            db.Reader = db.Command.ExecuteReader();
+
+            if (db.Reader.Read()) return new Patient((int)db.Reader[0], (string)db.Reader[1], (string)db.Reader[2], (string)db.Reader[3]);
+            else return new Patient(-1, "NONE", "", "");
+
+        }
     }
 }

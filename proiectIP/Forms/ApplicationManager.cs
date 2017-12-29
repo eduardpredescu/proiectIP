@@ -13,7 +13,6 @@ namespace proiectIP.Forms
     public partial class ApplicationManager : Form
     {
         public static ApplicationManager app;
-        private bool allowshowdisplay = false;
 
         public ApplicationManager()
         {

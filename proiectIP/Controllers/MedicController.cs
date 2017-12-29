@@ -28,5 +28,17 @@ namespace proiectIP.Controllers
 
             return mList;
         }
+
+        public static Medic getByUsername(string username)
+        {
+            db.Connection.Open();
+            db.Command = new System.Data.OleDb.OleDbCommand("SELECT Medic.* FROM MedicLogin INNER JOIN Medic " +
+                "ON MedicLogin.Medic_ID = Medic.ID WHERE MedicLogin.MedicEmail = @username", db.Connection);
+            db.Command.Parameters.AddWithValue("@username", username);
+            db.Reader = db.Command.ExecuteReader();
+
+            if (db.Reader.Read()) return new Medic((int)db.Reader[0], (string)db.Reader[1], (string)db.Reader[2], (string)db.Reader[3]);
+            else return new Medic(-1, "NONE", "", "");
+        }
     }
 }

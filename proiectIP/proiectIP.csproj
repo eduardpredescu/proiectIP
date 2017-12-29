@@ -52,6 +52,12 @@
     <Compile Include="Controllers\MedicController.cs" />
     <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Forms\AddPrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPrescriptionForm.Designer.cs">
+      <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ApplicationManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +76,11 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MedicForm.cs">
+    <Compile Include="Forms\PatientDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MedicForm.Designer.cs">
-      <DependentUpon>MedicForm.cs</DependentUpon>
+    <Compile Include="Forms\PatientDetails.Designer.cs">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PatientForm.cs">
       <SubType>Form</SubType>
@@ -96,14 +102,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\FormUtility.cs" />
+    <EmbeddedResource Include="Forms\AddPrescriptionForm.resx">
+      <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormManager.resx">
       <DependentUpon>FormManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MedicForm.resx">
-      <DependentUpon>MedicForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PatientDetails.resx">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PatientForm.resx">
       <DependentUpon>PatientForm.cs</DependentUpon>
@@ -137,7 +146,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="BazaDeDateIP.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
