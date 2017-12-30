@@ -51,7 +51,13 @@ namespace proiectIP.Forms
         private void patientListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Hide();
-            new AddPrescriptionForm(Int32.Parse(patientListView.SelectedItems[0].SubItems[1].Text), this.currentUser.Id).Show();
+            new AddPrescriptionForm(Int32.Parse(patientListView.SelectedItems[0].SubItems[1].Text), this.currentUser.Id, this.username).Show();
+        }
+
+        private void addPatientButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AddPatientForm(this.username).Show();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientDetails));
             this.nameLabel = new System.Windows.Forms.Label();
             this.surnameLabel = new System.Windows.Forms.Label();
             this.bloodTypeLabel = new System.Windows.Forms.Label();
@@ -37,12 +38,14 @@
             this.updateDetailsButton = new System.Windows.Forms.Button();
             this.prescriptionListView = new System.Windows.Forms.ListView();
             this.enableDetailsButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(59, 54);
+            this.nameLabel.Location = new System.Drawing.Point(59, 84);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 0;
@@ -51,7 +54,7 @@
             // surnameLabel
             // 
             this.surnameLabel.AutoSize = true;
-            this.surnameLabel.Location = new System.Drawing.Point(59, 93);
+            this.surnameLabel.Location = new System.Drawing.Point(59, 123);
             this.surnameLabel.Name = "surnameLabel";
             this.surnameLabel.Size = new System.Drawing.Size(49, 13);
             this.surnameLabel.TabIndex = 1;
@@ -60,7 +63,7 @@
             // bloodTypeLabel
             // 
             this.bloodTypeLabel.AutoSize = true;
-            this.bloodTypeLabel.Location = new System.Drawing.Point(59, 132);
+            this.bloodTypeLabel.Location = new System.Drawing.Point(59, 162);
             this.bloodTypeLabel.Name = "bloodTypeLabel";
             this.bloodTypeLabel.Size = new System.Drawing.Size(61, 13);
             this.bloodTypeLabel.TabIndex = 2;
@@ -68,7 +71,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(62, 70);
+            this.nameTextBox.Location = new System.Drawing.Point(62, 100);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -76,7 +79,7 @@
             // 
             // bloodTypeTextBox
             // 
-            this.bloodTypeTextBox.Location = new System.Drawing.Point(62, 148);
+            this.bloodTypeTextBox.Location = new System.Drawing.Point(62, 178);
             this.bloodTypeTextBox.Name = "bloodTypeTextBox";
             this.bloodTypeTextBox.ReadOnly = true;
             this.bloodTypeTextBox.Size = new System.Drawing.Size(32, 20);
@@ -84,7 +87,7 @@
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Location = new System.Drawing.Point(62, 109);
+            this.surnameTextBox.Location = new System.Drawing.Point(62, 139);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.ReadOnly = true;
             this.surnameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -122,11 +125,22 @@
             this.enableDetailsButton.Text = "Enable Details Update";
             this.enableDetailsButton.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(27, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 77);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // PatientDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 276);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.enableDetailsButton);
             this.Controls.Add(this.prescriptionListView);
             this.Controls.Add(this.updateDetailsButton);
@@ -139,6 +153,7 @@
             this.Name = "PatientDetails";
             this.Text = "PatientDetails";
             this.Load += new System.EventHandler(this.PatientDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +170,6 @@
         private System.Windows.Forms.Button updateDetailsButton;
         private System.Windows.Forms.ListView prescriptionListView;
         private System.Windows.Forms.Button enableDetailsButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

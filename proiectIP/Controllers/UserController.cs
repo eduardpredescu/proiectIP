@@ -1,4 +1,5 @@
 ﻿using static BCrypt.Net.BCrypt;
+using System;
 namespace proiectIP.Controllers
 {
     class UserController
@@ -29,6 +30,30 @@ namespace proiectIP.Controllers
             db.Connection.Close();
 
             return loginStatus;
+        }
+
+        public static bool insertPatient(string username, string password, int patientId)
+        {
+            bool dataInserted = false;
+            db.Connection.Open();
+
+            db.Command = new System.Data.OleDb.OleDbCommand("INSERT INTO PatientLogin(PatientEmail, [Password], Patient_ID) VALUES (@username, @password, @patientId)", db.Connection);
+            db.Command.Parameters.AddWithValue("@username", username);
+            db.Command.Parameters.AddWithValue("@password", HashPassword(password));
+            db.Command.Parameters.AddWithValue("@patientId", patientId);
+            
+            try
+            {
+                db.Command.ExecuteNonQuery();
+                dataInserted = true;
+                db.Connection.Close();
+            } catch (System.Data.OleDb.OleDbException ex)
+            {
+                Console.WriteLine(ex);
+                db.Connection.Close();
+            }
+           
+            return dataInserted;
         }
     }
 }
