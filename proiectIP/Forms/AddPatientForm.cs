@@ -1,4 +1,5 @@
 ﻿using proiectIP.Controllers;
+using proiectIP.Utils;
 using System.Windows.Forms;
 
 namespace proiectIP.Forms
@@ -9,6 +10,7 @@ namespace proiectIP.Forms
         public AddPatientForm(string username)
         {
             this.username = username;
+            this.FormClosing += FormUtility.CloseForm;
             InitializeComponent();
         }
 

@@ -30,6 +30,17 @@ namespace proiectIP.Utils
             footerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
 
             var docRange = document.Range();
+            docRange.Text = "Prescripție medicală";
+            docRange.set_Style("Heading 1");
+            docRange.Font.Color = Word.WdColor.wdColorBlack;
+            docRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            docRange.InsertParagraphAfter();
+            docRange.InsertParagraphAfter();
+
+            docRange.Collapse(Word.WdCollapseDirection.wdCollapseEnd);
+
+            var paragraph = document.Content.Paragraphs.Add();
+            paragraph.Range.Text = "CEVA SA FIE";
 
             document.SaveAs(wordFilePath);
             wordApp.Quit();
