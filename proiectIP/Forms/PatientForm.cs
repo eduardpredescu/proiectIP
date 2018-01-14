@@ -59,5 +59,12 @@ namespace proiectIP.Forms
             this.Hide();
             new AddPatientForm(this.username).Show();
         }
+
+        private void patientListButton_Click(object sender, EventArgs e)
+        {
+            List<Patient> pList = PatientController.getAll();
+            DocumentGenerator.generatePatientList(this.currentUser, pList);
+            MessageBox.Show("Document generated.");
+        }
     }
 }

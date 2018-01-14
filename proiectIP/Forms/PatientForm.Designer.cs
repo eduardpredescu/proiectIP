@@ -57,6 +57,7 @@
             this.patientListButton.TabIndex = 2;
             this.patientListButton.Text = "Generate Patient List";
             this.patientListButton.UseVisualStyleBackColor = true;
+            this.patientListButton.Click += new System.EventHandler(this.patientListButton_Click);
             // 
             // addPatientButton
             // 
