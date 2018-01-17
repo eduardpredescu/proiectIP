@@ -19,8 +19,8 @@ namespace proiectIP.Utils
                 DateTime.Now.ToString("yyyyMMdd", new CultureInfo("ro-ro")) + 
                 "_" + m.Name + 
                 "_" + p.Name + ".docx");
-            object oMissing = System.Reflection.Missing.Value;
-            object oEndOfDoc = "\\endofdoc";
+            object missingObj = System.Reflection.Missing.Value;
+            object endOfDocument = "\\endofdoc";
 
             document.PageSetup.PaperSize = Word.WdPaperSize.wdPaperA4;
 
@@ -36,7 +36,7 @@ namespace proiectIP.Utils
             footerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
 
             Word.Paragraph para1;
-            para1 = document.Content.Paragraphs.Add(ref oMissing);
+            para1 = document.Content.Paragraphs.Add(ref missingObj);
             para1.Range.Text = "Prescripție medicală";
             para1.Range.Font.Bold = 1;
             para1.Range.Font.Size = 24;
@@ -49,8 +49,8 @@ namespace proiectIP.Utils
 
 
             Word.Paragraph para2;
-            object oRng = document.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            para2 = document.Content.Paragraphs.Add(ref oRng);
+            object range = document.Bookmarks.get_Item(ref endOfDocument).Range;
+            para2 = document.Content.Paragraphs.Add(ref range);
             para2.Range.Font.Bold = 0;
             para2.Range.Font.Size = 12;
             para2.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
@@ -62,8 +62,8 @@ namespace proiectIP.Utils
 
 
             Word.Paragraph para3;
-            oRng = document.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            para3 = document.Content.Paragraphs.Add(ref oRng);
+            range = document.Bookmarks.get_Item(ref endOfDocument).Range;
+            para3 = document.Content.Paragraphs.Add(ref range);
             para3.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
             para3.Range.Font.Bold = 0;
             para3.Range.Font.Size = 12;
@@ -84,8 +84,8 @@ namespace proiectIP.Utils
                 DateTime.Now.ToString("yyyyMMdd", new CultureInfo("ro-ro")) +
                 "_" + m.Name +
                 "_lista" + ".docx");
-            object oMissing = System.Reflection.Missing.Value;
-            object oEndOfDoc = "\\endofdoc";
+            object missingObj = System.Reflection.Missing.Value;
+            object endOfDocument = "\\endofdoc";
 
             document.PageSetup.PaperSize = Word.WdPaperSize.wdPaperA4;
 
@@ -101,8 +101,8 @@ namespace proiectIP.Utils
             footerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
 
             Word.Paragraph para1;
-            para1 = document.Content.Paragraphs.Add(ref oMissing);
-            para1.Range.Text = "Lista pacientilor medic "+m.Name + " " + m.Surname;
+            para1 = document.Content.Paragraphs.Add(ref missingObj);
+            para1.Range.Text = "Lista pacientilor medic\n"+m.Name + " " + m.Surname;
             para1.Range.Font.Bold = 1;
             para1.Range.Font.Size = 24;
             para1.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
@@ -112,32 +112,32 @@ namespace proiectIP.Utils
             para1.Range.InsertParagraphAfter();
             para1.Range.InsertParagraphAfter();
 
-            Word.Table oTable;
-            Word.Range wrdRng = document.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oTable = document.Tables.Add(wrdRng, list.Count+1, 4, ref oMissing, ref oMissing);
-            oTable.Range.ParagraphFormat.SpaceAfter = 6;
-            oTable.Range.Font.Bold = 0;
-            oTable.Range.Font.Size = 16;
-            oTable.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
-            oTable.Cell(1, 1).Range.Text = "Nr. crt.";
-            oTable.Cell(1, 2).Range.Text = "Nume";
-            oTable.Cell(1, 3).Range.Text = "Prenume";
-            oTable.Cell(1, 4).Range.Text = "Grupa sanguina";
+            Word.Table tableObj;
+            Word.Range wordRange = document.Bookmarks.get_Item(ref endOfDocument).Range;
+            tableObj = document.Tables.Add(wordRange, list.Count+1, 4, ref missingObj, ref missingObj);
+            tableObj.Range.ParagraphFormat.SpaceAfter = 6;
+            tableObj.Range.Font.Bold = 0;
+            tableObj.Range.Font.Size = 16;
+            tableObj.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            tableObj.Cell(1, 1).Range.Text = "Nr. crt.";
+            tableObj.Cell(1, 2).Range.Text = "Nume";
+            tableObj.Cell(1, 3).Range.Text = "Prenume";
+            tableObj.Cell(1, 4).Range.Text = "Grupa sanguina";
             for (int i = 0; i < list.Count; i++)
             {
-                oTable.Cell(i + 2, 1).Range.Text = (i + 1).ToString();
-                oTable.Cell(i + 2, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                tableObj.Cell(i + 2, 1).Range.Text = (i + 1).ToString();
+                tableObj.Cell(i + 2, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
 
-                oTable.Cell(i + 2, 2).Range.Text = list[i].Surname;
+                tableObj.Cell(i + 2, 2).Range.Text = list[i].Surname;
 
-                oTable.Cell(i + 2, 3).Range.Text = list[i].Name;
+                tableObj.Cell(i + 2, 3).Range.Text = list[i].Name;
 
-                oTable.Cell(i + 2, 4).Range.Text = list[i].BloodType;
+                tableObj.Cell(i + 2, 4).Range.Text = list[i].BloodType;
             }
 
-            oTable.set_Style("Table Professional");
-            oTable.Columns.AutoFit();
-            oTable.AutoFitBehavior(Word.WdAutoFitBehavior.wdAutoFitWindow);
+            tableObj.set_Style("Table Professional");
+            tableObj.Columns.AutoFit();
+            tableObj.AutoFitBehavior(Word.WdAutoFitBehavior.wdAutoFitWindow);
 
             document.SaveAs(wordFilePath);
             wordApp.Quit();
